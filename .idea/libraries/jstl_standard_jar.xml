@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="jstl-standard.jar">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../../../../../Programação/Taglibs/jstl-standard.jar.zip!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="jar://$PROJECT_DIR$/../../../../../Programação/Taglibs/jstl-standard.jar.zip!/" recursive="false" />
+  </library>
+</component>
