@@ -36,7 +36,7 @@
                                         href="AdminPesquisar.jsp">Pesquisar <span class="sr-only"></span>
                 </a></li>
                 <li class="nav-item"><a class="nav-link"
-                                        href="AdminInserir.jsp">Inserir</a></li>
+                                        href="Admin/AdminInserir.jsp">Inserir</a></li>
             </ul>
         </div>
     </h3>

@@ -27,7 +27,7 @@ public class UsuarioDAO {
     public boolean verificar(Usuario usuario) {
         boolean achou = false;
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("SELECT ID_USUARIO, LOGIN, SENHA FROM USUARIOS WHERE LOGIN = ? AND SENHA = ?);");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("SELECT LOGIN, SENHA FROM USUARIOS WHERE LOGIN = ? AND SENHA = ?);");
             ps.setString(1, usuario.getLogin());
             ps.setString(2, usuario.getSenha());
             ResultSet rs = ps.executeQuery();
@@ -48,9 +48,11 @@ public class UsuarioDAO {
     public void inserir(Usuario usuario) {
         try {
             PreparedStatement ps = conexao.getConnection()
-                    .prepareStatement("insert into USUARIOS (LOGIN, SENHA) values (?,?);");
+                    .prepareStatement("insert into USUARIOS (LOGIN, SENHA, NOME, SOBRENOME) values (?,?,?,?);");
             ps.setString(1, usuario.getLogin());
             ps.setString(2, usuario.getSenha());
+            ps.setString(3, usuario.getNome());
+            ps.setString(4,usuario.getSobrenome());
             ps.execute();
             ps.close();
         } catch (SQLException e) {

@@ -53,23 +53,23 @@
 <br>
 <br>
 <div align="center">
-    <form action="/GestaoBibliografica/EfetuarCadastroController"
+    <form action="/GestaoBibliografica/CadastroController"
           method="post">
 
         <div class="form-row">
             <div class="col-md-2 mb-3">
-                <label for="validationDefault01">Primeiro nome</label> <input
-                    type="text" class="form-control" placeholder="Primeiro nome"
+                <label for="validationDefault01">Nome</label> <input
+                    type="text" class="form-control" name="nome" placeholder="Primeiro nome"
                     required>
             </div>
             <div class="col-md-2 mb-3">
                 <label for="validationDefault02">Sobrenome</label> <input
-                    type="text" class="form-control" placeholder="Sobrenome" required>
+                    type="text" class="form-control" name="sobrenome" placeholder="Sobrenome" required>
             </div>
 
             <div class="col-md-2 mb-3">
                 <label for="validationDefaultUsername">Usuário</label> <input
-                    type="text" class="form-control" id="validationDefaultUsername"
+                    type="text" class="form-control" name="usuario"
                     placeholder="Usuario" aria-describedby="inputGroupPrepend2"
                     required>
             </div>
@@ -77,12 +77,12 @@
         <div class="form-row">
             <div class="col-md-2 mb-3">
                 <label for="validationDefault03">Senha</label> <input type="text"
-                                                                      class="form-control" id="validationDefault03" placeholder="Senha"
+                                                                      class="form-control" name="senha" placeholder="Senha"
                                                                       required>
             </div>
             <div class="col-md-2 mb-3">
                 <label for="validationDefault04">Confirmar senha</label> <input
-                    type="text" class="form-control" id="validationDefault04"
+                    type="text" class="form-control" name="confirmarSenha"
                     placeholder="Senha" required>
             </div>
         </div>

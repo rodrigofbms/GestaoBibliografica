@@ -13,7 +13,7 @@
           integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
           crossorigin="anonymous">
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-    <title>Inserir livros</title>
+    <title>Inserir bibliografias</title>
 </head>
 <body>
 <!--  Menu de navegação> -->
@@ -30,10 +30,10 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="AdminHome.jsp">Home
+                <li class="nav-item"><a class="nav-link" href="../AdminHome.jsp">Home
                     </a></li>
                 <li class="nav-item"><a class="nav-link"
-                                        href="AdminPesquisar.jsp">Pesquisar <span class="sr-only"></span>
+                                        href="../AdminPesquisar.jsp">Pesquisar <span class="sr-only"></span>
                 </a></li>
                 <li class="nav-item active"><a class="nav-link"
                                                href="AdminInserir.jsp">Inserir</a></li>
@@ -53,8 +53,8 @@
           method="post">
         <div class="form-row">
             <div class="col-md-2 mb-3">
-                <label for="validationDefault01">Nome do livro</label> <input
-                    type="text" class="form-control" placeholder="Nome do livro"
+                <label for="validationDefault01">Nome do bibliografia</label> <input
+                    type="text" class="form-control" placeholder="Nome do bibliografia"
                     required>
             </div>
             <div class="col-md-2 mb-3">
@@ -81,7 +81,7 @@
             </div>
         </div>
         <button class="btn btn-primary" type="submit">Cadastrar
-            livro</button>
+            bibliografia</button>
     </form>
 </div>
 </body>

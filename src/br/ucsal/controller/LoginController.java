@@ -1,5 +1,8 @@
 package br.ucsal.controller;
 
+import br.ucsal.dao.UsuarioDAO;
+import br.ucsal.entidades.Usuario;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,14 +18,27 @@ public class LoginController extends HttpServlet {
         super();
     }
 
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("login.jsp").forward(request, response);
+    }
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String usuario = request.getParameter("usuario");
         String senha = request.getParameter("senha");
-        if (usuario.equals(senha)) {
+
+        UsuarioDAO dao = new UsuarioDAO();
+        Usuario conta = new Usuario();
+        conta.setLogin(usuario);
+        conta.setSenha(senha);
+
+        if (usuario.equals("admin") && senha.equals("admin")) {
             response.sendRedirect("/GestaoBibliografica/AdminHome.jsp");
-        } else {
+        }else if (dao.verificar(conta)){
             response.sendRedirect("/GestaoBibliografica/Home.jsp");
+        }else {
+            response.sendRedirect("/GestaoBibliografica/Login.jsp");
         }
     }
 

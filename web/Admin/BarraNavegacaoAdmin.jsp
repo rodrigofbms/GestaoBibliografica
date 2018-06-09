@@ -26,12 +26,12 @@
 
         <div class="collapse navbar-collapse" id="navbarColor01">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item"><a class="nav-link" href="Home.jsp">Home
+                <li class="nav-item"><a class="nav-link" href="../Home.jsp">Home
                     </a></li>
-                <li class="nav-item"><a class="nav-link" href="Pesquisar.jsp">Pesquisar
+                <li class="nav-item"><a class="nav-link" href="../Pesquisar.jsp">Pesquisar
                     <span class="sr-only"></span>
                 </a></li>
-                <li class="nav-item"><a class="nav-link" href="Cadastro.jsp">Inserir</a></li>
+                <li class="nav-item"><a class="nav-link" href="../Cadastro.jsp">Inserir</a></li>
             </ul>
         </div>
     </h3>
