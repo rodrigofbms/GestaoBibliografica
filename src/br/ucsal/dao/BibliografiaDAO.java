@@ -21,8 +21,8 @@ public class BibliografiaDAO {
 
         try {
             PreparedStatement ps = conexao.getConnection()
-                    .prepareStatement("SELECT Bibliografia.Titulo, autor.Sobrenome, autor.Nome "
-                            + "autor_bibliografia.id_autor, autor_bibliografia.id_bibliografia, editora, edicao FROM Bibliografia, autor, autor_bibliografia WHERE autor_bibliografia.id_autor = autor_bibliografia.id_bibliografia);");
+                    .prepareStatement("SELECT Bibliografias.Titulo, autores.Sobrenome, autores.Nome "
+                            + "autor_bibliografia.id_autor, autor_bibliografia.id_bibliografia, editora, edicao FROM Bibliografias, autores, autor_bibliografia WHERE autor_bibliografia.id_autor = autor_bibliografia.id_bibliografia);");
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Bibliografia bibliografia = new Bibliografia();
@@ -55,7 +55,7 @@ public class BibliografiaDAO {
         List<Bibliografia> Bibliografias = new ArrayList<>();
         try {
             stmt = conexao.getConnection().createStatement();
-            ResultSet rs = stmt.executeQuery("select BibliografiaS.ID, Titulo, ID_AUTOR, EDICAO, EDITORA from bibliografia;");
+            ResultSet rs = stmt.executeQuery("select Bibliografias.ID, Titulo, ID_AUTOR, EDICAO, EDITORA from bibliografias;");
             while (rs.next()) {
                 Bibliografia bibliografia = new Bibliografia();
                 bibliografia.setId(rs.getInt("id"));
@@ -82,7 +82,7 @@ public class BibliografiaDAO {
         try {
 
             PreparedStatement ps = conexao.getConnection().prepareStatement(
-                    "insert into Bibliografia (Titulo,id_Materia, EDICAO, EDITORA, id) values (?,?,?,?,?);");
+                    "insert into Bibliografias (Titulo,id_Materia, EDICAO, EDITORA, id) values (?,?,?,?,?);");
             ps.setString(1, Bibliografia.getTitulo());
             ps.setInt(2, Bibliografia.getMateria().getId());
             ps.setInt(3, Bibliografia.getEdicao());
@@ -101,7 +101,7 @@ public class BibliografiaDAO {
 
     public boolean deletar(Integer idDeletar) {
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("DELETE Bibliografia WHERE id = ?;");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("DELETE Bibliografias WHERE id = ?;");
             ps.setInt(1, idDeletar);
             ps.execute();
             ps.close();
@@ -115,7 +115,7 @@ public class BibliografiaDAO {
 
     public boolean atualizar(Bibliografia bibliografia) {
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("update Bibliografia set titulo = ? , set edicao = ? , set editora = ? , set autor = ?, set matertia = ?");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("update Bibliografias set titulo = ? , set edicao = ? , set editora = ? , set autor = ?, set materia = ?");
             ps.setString(1, bibliografia.getTitulo());
             ps.setInt(2, bibliografia.getEdicao());
             ps.setString(3, bibliografia.getEditora());
@@ -133,7 +133,7 @@ public class BibliografiaDAO {
     public Bibliografia getById(int id) {
         Bibliografia bibliografia = null;
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("select id, titulo, edicao, editora, id_materia from bibliografia where id = ?");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("select id, titulo, edicao, editora, id_materia from bibliografias where id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {

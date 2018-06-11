@@ -16,7 +16,7 @@ public class AutorDAO {
 
     public boolean deletar(Integer idDeletar) {
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("DELETE Autor WHERE id = ?;");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("DELETE Autores WHERE id = ?;");
             ps.setInt(1, idDeletar);
             return true;
         } catch (SQLException e) {
@@ -30,7 +30,7 @@ public class AutorDAO {
         try {
 
             PreparedStatement ps = conexao.getConnection()
-                    .prepareStatement("insert into Autor (id ,Nome,sobrenome) values (?,?,?);");
+                    .prepareStatement("insert into Autores (id ,Nome,sobrenome) values (?,?,?);");
             ps.setInt(1, autor.getId());
             ps.setString(2, autor.getNome());
             ps.setString(3, autor.getSobrenome());
@@ -45,7 +45,7 @@ public class AutorDAO {
     public Autor getById(int id){
         Autor autor = null;
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("select id, nome, sobrenome from autor where id = ?");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("select id, nome, sobrenome from autores where id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {

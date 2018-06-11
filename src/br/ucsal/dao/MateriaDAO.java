@@ -14,7 +14,7 @@ public class MateriaDAO {
         try {
 
             PreparedStatement ps = conexao.getConnection().prepareStatement(
-                    "insert into materia (id, nome) values (?,?);");
+                    "insert into materias (id, nome) values (?,?);");
             ps.setInt(1, materia.getId());
             ps.setString(2, materia.getNome());
 
@@ -31,7 +31,7 @@ public class MateriaDAO {
 
     public boolean deletar(Integer idDeletar) {
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("DELETE materia WHERE id = ?;");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("DELETE materias WHERE id = ?;");
             ps.setInt(1, idDeletar);
             ps.close();
             return true;
@@ -45,7 +45,7 @@ public class MateriaDAO {
     public Materia getById(int id){
         Materia materia = null;
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("select id, nome from materia where id = ?");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("select id, nome from materias where id = ?");
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
