@@ -3,6 +3,7 @@ package br.ucsal.dao;
 import br.ucsal.entidades.Autor;
 import br.ucsal.util.Conexao;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class AutorDAO {
@@ -29,15 +30,34 @@ public class AutorDAO {
         try {
 
             PreparedStatement ps = conexao.getConnection()
-                    .prepareStatement("insert into Autor (Nome,sobrenome) values (?,?);");
-            ps.setString(1, autor.getNome());
-            ps.setString(2, autor.getSobrenome());
+                    .prepareStatement("insert into Autor (id ,Nome,sobrenome) values (?,?,?);");
+            ps.setInt(1, autor.getId());
+            ps.setString(2, autor.getNome());
+            ps.setString(3, autor.getSobrenome());
 
             ps.execute();
             ps.close();
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+
+    public Autor getById(int id){
+        Autor autor = null;
+        try {
+            PreparedStatement ps = conexao.getConnection().prepareStatement("select id, nome, sobrenome from autor where id = ?");
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                autor = new Autor();
+                autor.setId(rs.getInt("id"));
+                autor.setNome(rs.getString("nome"));
+                autor.setSobrenome(rs.getString("sobrenome"));
+            }
+        }catch (SQLException e ){
+            e.printStackTrace();
+        }
+    return autor;
     }
 
 }

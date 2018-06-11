@@ -48,11 +48,12 @@ public class UsuarioDAO {
     public void inserir(Usuario usuario) {
         try {
             PreparedStatement ps = conexao.getConnection()
-                    .prepareStatement("insert into USUARIOS (LOGIN, SENHA, NOME, SOBRENOME) values (?,?,?,?);");
+                    .prepareStatement("insert into USUARIOS (LOGIN, SENHA, NOME, SOBRENOME, id) values (?,?,?,?,?);");
             ps.setString(1, usuario.getLogin());
             ps.setString(2, usuario.getSenha());
             ps.setString(3, usuario.getNome());
             ps.setString(4,usuario.getSobrenome());
+            ps.setInt(5, usuario.getId());
             ps.execute();
             ps.close();
         } catch (SQLException e) {
