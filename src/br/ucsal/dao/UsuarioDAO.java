@@ -63,7 +63,7 @@ public class UsuarioDAO {
 public void atualizar(Usuario usuario){
     try {
         PreparedStatement ps = conexao.getConnection()
-                .prepareStatement("update USUARIOS set LOGIN = ?,set SENHA = ?, set NOME = ?,set SOBRENOME + ?;");
+                .prepareStatement("update USUARIOS set LOGIN = ?, SENHA = ?, NOME = ?, SOBRENOME + ?;");
         ps.setString(1, usuario.getLogin());
         ps.setString(2, usuario.getSenha());
         ps.setString(3, usuario.getNome());

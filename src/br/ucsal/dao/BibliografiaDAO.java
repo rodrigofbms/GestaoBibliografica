@@ -115,7 +115,7 @@ public class BibliografiaDAO {
 
     public boolean atualizar(Bibliografia bibliografia) {
         try {
-            PreparedStatement ps = conexao.getConnection().prepareStatement("update Bibliografias set titulo = ? , set edicao = ? , set editora = ? , set autor = ?, set materia = ?");
+            PreparedStatement ps = conexao.getConnection().prepareStatement("update Bibliografias set titulo = ?, edicao = ?, editora = ?, autor = ?, materia = ?");
             ps.setString(1, bibliografia.getTitulo());
             ps.setInt(2, bibliografia.getEdicao());
             ps.setString(3, bibliografia.getEditora());
