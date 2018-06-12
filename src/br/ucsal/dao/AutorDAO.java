@@ -30,10 +30,9 @@ public class AutorDAO {
         try {
 
             PreparedStatement ps = conexao.getConnection()
-                    .prepareStatement("insert into Autores (id ,Nome,sobrenome) values (?,?,?);");
-            ps.setInt(1, autor.getId());
-            ps.setString(2, autor.getNome());
-            ps.setString(3, autor.getSobrenome());
+                    .prepareStatement("insert into Autores (Nome,sobrenome) values (?,?);");
+            ps.setString(1, autor.getNome());
+            ps.setString(2, autor.getSobrenome());
 
             ps.execute();
             ps.close();

@@ -34,5 +34,6 @@
     <orderEntry type="library" name="jstl-1.2.jar" level="project" />
     <orderEntry type="library" name="jstl-impl.jar" level="project" />
     <orderEntry type="library" name="jstl-standard.jar" level="project" />
+    <orderEntry type="library" name="org.postgresql:postgresql:9.4-1206-jdbc42" level="project" />
   </component>
 </module>

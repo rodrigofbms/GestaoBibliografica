@@ -82,12 +82,11 @@ public class BibliografiaDAO {
         try {
 
             PreparedStatement ps = conexao.getConnection().prepareStatement(
-                    "insert into Bibliografias (Titulo,id_Materia, EDICAO, EDITORA, id) values (?,?,?,?,?);");
+                    "insert into Bibliografias (Titulo,id_Materia, EDICAO, EDITORA) values (?,?,?,?);");
             ps.setString(1, Bibliografia.getTitulo());
             ps.setInt(2, Bibliografia.getMateria().getId());
             ps.setInt(3, Bibliografia.getEdicao());
             ps.setString(4, Bibliografia.getEditora());
-            ps.setInt(5, Bibliografia.getId());
             ps.execute();
             ps.close();
         } catch (SQLException e) {

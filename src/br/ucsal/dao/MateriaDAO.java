@@ -14,9 +14,8 @@ public class MateriaDAO {
         try {
 
             PreparedStatement ps = conexao.getConnection().prepareStatement(
-                    "insert into materias (id, nome) values (?,?);");
-            ps.setInt(1, materia.getId());
-            ps.setString(2, materia.getNome());
+                    "insert into materias (nome) values (?);");
+            ps.setString(1, materia.getNome());
 
             ps.execute();
             ps.close();
